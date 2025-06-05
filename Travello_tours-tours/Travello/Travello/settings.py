@@ -27,7 +27,7 @@ DEBUG = False
 
 # ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = ['your-app-name.onrender.com']
+ALLOWED_HOSTS = ['https://new-package-1.onrender.com']
 
 # Application definition
 
