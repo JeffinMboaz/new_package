@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block title %}User dashboard{% endblock %}
+{% block content %}
+
+<div class="welcome-text ">
+  <h1 class="">
+    Welcome
+    <span class="text-capitalize">{{ first_name }} {{ last_name }}</span> to
+    Travello Tours
+  </h1>
+  <p class="text-lead">
+    Explore our tour packages and plan your next adventure!
+  </p>
+  <button class="welcome-btn">Book Now</button>
+</div>
+
+<div class="py-5" style="background-color: #799CFB;">
+  <marquee behavior="alternate" direction="right" class=" text-black"
+    ><p class=" text-lead">Turn moments into memories—your adventure begins </p></marquee
+  >
+</div>
+<h3 class="mb-4 pb-2 ps-5 bg-light">Available Tour Packages</h3>
+
+<div class="row gx-4 gy-4 package-view">
+  {% for package in packages %}
+  <div class="col-sm-6 col-md-4 col-lg-3 d-flex">
+    <div class="card shadow-sm w-100 d-flex flex-column">
+      <a href="{% url 'package_details' package.id %}">
+        <img
+          src="{{ package.place_image }}"
+          class="card-img-top img-fluid"
+          alt="{{ package.package_title }}"
+        />
+      </a>
+      <div
+        class="card-body d-flex flex-column justify-content-between flex-grow-1"
+      >
+        <div>
+          <h5 class="card-title">{{ package.package_title }}</h5>
+          <p class="card-text fw-bold">
+            Destination: {{ package.destination }}
+          </p>
+          <p class="card-text fw-bold">Price: ₹ {{ package.price }}</p>
+          <p class="card-text fw-bold">Duration: {{ package.duration }} days</p>
+        </div>
+        <a href="{% url 'package_details' package.id %}" class="book_btn"
+          >Book Now</a
+        >
+      </div>
+    </div>
+  </div>
+
+  {% empty %}
+  <div class="col-12 text-center">
+    <p>No packages available.</p>
+  </div>
+  {% endfor %}
+ <div class="d-flex  justify-content-center ">
+  
+  <button class="book_btn px-5">Load more</button>
+</div>
+</div>
+
+{% endblock %}

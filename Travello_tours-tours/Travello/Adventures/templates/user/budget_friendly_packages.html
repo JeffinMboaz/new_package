@@ -1,0 +1,44 @@
+<!-- templates/budgetfriendly_packages.html -->
+{% extends 'base.html' %} {% block title %}Budget friendly Packages{% endblock%} {% block content %}
+<div style="margin-top: 90px;">
+  <div class="d-flex flex-row justify-content-end me-3 mb-2 ">
+    <a href="{% url 'return_to_user_dashboard' %}" class=" py-2 btn btn-secondary btn-back">
+      Back
+    </a>
+  </div>
+  <h3 class="mb-4 pb-2 ps-5 bg-light ">
+    Budget-Friendly Packages
+  </h3>
+ 
+<div class="row gx-4 gy-4 package-view">
+  {% for package in packages %}
+  <div class="col-sm-6 col-md-4 col-lg-3 d-flex">
+    <div class="card shadow-sm w-100 d-flex flex-column">
+      <a href="{% url 'package_details' package.id %}">
+        <img
+          src="{{ package.place_image }}"
+          class="card-img-top img-fluid"
+          alt="{{ package.package_title }}"
+        />
+      </a>
+      <div class="card-body d-flex flex-column justify-content-between flex-grow-1">
+        <div>
+          <h5 class="card-title">{{ package.package_title }}</h5>
+          <p class="card-text ">Destination: {{ package.destination }}</p>
+          <p class="card-text fw-bold">₹ {{ package.price }}</p>
+          <p class="card-text ">Duration: {{ package.duration }} days</p>
+        </div>
+         <a href="{% url 'package_details' package.id %}" class="book_btn">Book Now</a>
+       </div>
+    </div>
+  </div>
+
+  {% empty %}
+  <div class="col-12 text-center">
+    <p>No packages available.</p>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+{% endblock %}

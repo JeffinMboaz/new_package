@@ -1,0 +1,46 @@
+<!-- templates/add_package.html -->
+{% extends 'vendorbase.html' %} {% block title %}package bookings{%endblock %}
+{% block content %}
+
+<section style="min-height: 80vh">
+  <div class="container mt-5 pt-4">
+    <div
+      class="card-custom"
+      style="
+        background-color:#799CFB;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      "
+    >
+      <h2 class="mb-4" style="font-weight: 600;">
+        Bookings for Your Active Packages
+      </h2>
+      <table class="table table-bordered table-striped table-hover shadow">
+        <thead class="table-dark">
+          <tr>
+            <th>Package Title</th>
+            <th>Bookings</th>
+          </tr>
+        </thead>
+        <tbody >
+          {% for package in packages %}
+          <tr>
+            <td>{{ package.package_title }}</td>
+            <td>{{ package.bookings.count }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="2" class="text-center text-muted">
+              No active packages found.
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+   

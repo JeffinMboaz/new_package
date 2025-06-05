@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MakeMyTrip-Travello - User Registration</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <style>
+      body {
+        padding-top: 70px;
+        background-color: ghostwhite !important;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+     /* navbar transparent */
+.navbar {
+  background: rgba(226, 229, 231, 0.2) !important; /* semi-transparent blue */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 4px 10px rgba(209, 209, 209, 0.1);
+
+}
+.navbar-toggler {
+  border: 1px solid rgb(11, 50, 92);
+  background: rgba(226, 229, 231, 0.2) !important; /* semi-transparent blue */
+}
+.navbar-toggler-icon {
+  color: rgb(7, 23, 39) !important;
+}
+.navbar-brand{
+  color: #6DC7D1 !important;
+}
+.nav-link {
+  padding: 5px;
+  border-radius: 1rem;
+  margin: 2px 5px;
+  color:#ffffff !important;
+  background-color: #6DC7D1 !important;
+}
+.navbar-brand:hover {
+  color: navy !important;
+  transition: ease-in-out 0.5s;
+}
+.nav-link:hover{
+  background-color: #0056b3 !important;
+  color: white !important;
+  transition: ease-in-out 0.5s;
+}
+/* set navbar transparent */
+      .card {
+        background: #f7f4f3;
+        border-radius: 15px;
+      }
+      label {
+        font-weight: 600;
+      }   
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004a9f;
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+      }
+      .navbar-toggler-icon {
+
+      }
+      .navbar-toggler {
+        border: 1px solid rgb(11, 50, 92);
+        background: rgb(33, 106, 196) !important;
+      }
+      footer {
+        background-color: #343a40;
+        color: white;
+        padding: 3rem 3px 0px 3px;
+        text-align: center;
+      }
+
+      .travelcompany {
+        display: flex;
+        flex-wrap:wrap-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        background-color: rgba(49, 49, 49, 0.47);
+        padding: 20px 0;
+        border-radius: 5px;
+      }
+
+      .travelcompany-logo {
+        max-height: 180px;
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        filter: brightness(0.9);
+        background-color: antiquewhite;
+        border-radius:5px;
+        border: 1px solid rgba(11, 37, 69, 0.16);
+        box-shadow: 5px 2px 7px rgba(99, 84, 231, 0.45);
+      }
+
+      /* Optional: Make logos smaller on extra-small screens */
+      @media (max-width: 576px) {
+        .travelcompany-logo {
+          max-height: 60px;
+          max-width: 80px;
+        }
+      }
+      .icon-large {
+        font-size: 2rem; 
+        transform: scale(1);
+      }
+      .icon-large:hover{
+        color:#007bff;
+        transition: 0.5s ease-in-out;
+        transform: scale(1.25);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top shadow">
+        <div class="container-fluid px-5">
+          <a class="navbar-brand fw-bold me-auto" href="{% url 'home' %}"
+            >Travello</a
+          >
+          <button
+            class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto my-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active fw-bold" href=" {% url 'home' %} "
+                  >Home</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container mt-5">
+      <section class="card shadow p-5 mx-auto" style="max-width: 600px">
+        <h2 class="text-center mb-4 text-dark">User Registration</h2>
+
+        <form method="POST" action="{% url 'user_reg' %}">
+          {% csrf_token %}
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="first_name"
+              name="first_name"
+              placeholder="First Name"
+              required
+              style="border: 2px solid blue"
+            />
+            <label for="first_name">First Name</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="second_name"
+              name="second_name"
+              placeholder="Second Name"
+              required
+              style="border: 2px solid blue"
+            />
+            <label for="second_name">Second Name</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+              style="border: 2px solid blue"
+            />
+            <label for="email">Email</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="user_name"
+              name="user_name"
+              placeholder="Username"
+              required
+              style="border: 2px solid blue"
+            />
+            <label for="user_name">Username</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+              style="border: 2px solid blue"
+            />
+            <label for="password">Password</label>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="confirm_password"
+              name="confirm_password"
+              placeholder="Confirm Password"
+              required
+              style="border: 2px solid blue"
+            />
+            <label for="confirm_password">Confirm Password</label>
+          </div>
+
+          <div class="d-flex justify-content-around mt-5">
+            <button type="submit" class="btn btn-primary px-5">
+              <i class="bi bi-check-circle me-2"></i>Register
+            </button>
+            <button type="reset" class="btn btn-secondary px-5">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="mb-3">
+        <div class="text-center mt-5 container-fluid" style="width: 50%">
+          <button class="btn btn-dark w-100" onclick="history.back()">
+            Back
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+   
+    <footer>
+      <marquee behavior="scroll" direction="left"
+        ><h5><i>Experience excellence with renowned travel partners</i></h5>
+      </marquee>
+
+      <div class="travelcompany">
+        <marquee behavior="alternate" direction="right" class="mt-2"
+          ><h5><i>MakeMyTrip-Travello</i></h5>
+        </marquee>
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18233431/company-logo-design-by-gldesigns-designcrowd.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18234153/Expedia.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18234226/Tripadvisor.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18233107/modern-blue-travel-agent-logo-design-by-shakuna-designcrowd.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18233129/personable-company-it-company-logo-design-by-basksh-designs-designcrowd.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18233409/beach-womens-clothing-logo-design-by-queen-designcrowd.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18233118/modern-creative-travel-agent-logo-design-by-finley-johnson-designcrowd.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18234140/Cathay-Pacific.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18233213/playful-fun-travel-logo-design-by-mr-line-rt-designcrowd.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18234217/Lufthansa.png"
+          alt=""
+        />
+        <img
+          class="travelcompany-logo"
+          src="https://bcassetcdn.com/public/blog/wp-content/uploads/2022/11/18233111/modern-brief-logo-design-by-ochieng-designcrowd.png"
+          alt=""
+        />
+      </div>
+      <div class="mt-3">
+        <div style="height: 150px">
+          <p class="d-flex justify-content-center align-items-center gap-5">
+            <i class="bi bi-facebook icon-large"></i>
+            <i class="bi bi-instagram icon-large"></i>
+            <i class="bi bi-youtube icon-large"></i>
+            <i class="bi bi-google icon-large"></i>
+          </p>
+           <p class=" pt-3">
+              <i class="bi bi-c-circle"></i> 2025 MakeMyTrip-Travello | All rights
+               reserved.
+            </p>
+          </div>
+       
+      </div>
+    </footer>   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color:#f7f4f3 ;
+}
+/* navbar transparent */
+.navbar {
+  background: rgba(226, 229, 231, 0.2) !important; /* semi-transparent blue */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 4px 10px rgba(209, 209, 209, 0.1);
+
+}
+.navbar-toggler {
+  border: 1px solid rgb(11, 50, 92);
+  background: rgba(226, 229, 231, 0.2) !important; /* semi-transparent blue */
+}
+.navbar-toggler-icon {
+  color: rgb(7, 23, 39) !important;
+}
+.navbar-brand{
+  color: white !important;
+}
+.dropdown-item {
+  color: white !important;
+}
+.nav-link {
+  padding: 5px;
+  border-radius: 1rem;
+  margin: 2px 5px;
+  color:#ffffff !important;
+  background-color: #6DC7D1 !important;
+}
+.navbar-brand:hover {
+  color: #6DC7D1 !important;
+  transition: ease-in-out 0.5s;
+}
+.nav-link:hover{
+  background-color: #0056b3 !important;
+  color: white !important;
+  transition: ease-in-out 0.5s;
+}
+/* set navbar transparent */
+.dropdown-item:hover {
+  background-color:white !important;
+  padding: 5px;
+  border-radius: 1rem;
+  color:  #0056b3  !important;
+  transition: ease-in-out 0.5s;
+}
+.dropdown-menu {
+  background-color:  #0056b3 !important;
+ 
+}
+.carousel-item img {
+  height: 720px;
+  object-fit:cover;
+  overflow: hidden;
+  
+}
+h1 {
+  margin-top: 3rem;
+  color: #0874e7;
+  text-align: center;
+  font-weight: bold;
+}
+.explore{
+  background-color:#f7f4f3;
+  padding: 1rem 1rem;
+  height: 350px;
+}
+section {
+  padding: 0 2rem;
+  text-align: center;
+  background-color: #f7f4f3;
+
+
+}
+.btn-outline-success {
+  border-color: white;
+  color: white;
+}
+.btn-outline-success:hover {
+  background-color: white;
+  color: #007bff;
+}
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 3rem 3px 0px 3px;
+  text-align: center;
+}
+.travelcompany {
+  display: flex;
+  flex-wrap:wrap-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(49, 49, 49, 0.47);
+  padding: 20px 0;
+  border-radius: 5px;
+}
+.travelcompany-logo {
+  max-height: 180px;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.9);
+  background-color: antiquewhite;
+  border-radius:5px;
+  border: 1px solid rgba(11, 37, 69, 0.16);
+  box-shadow: 5px 2px 7px rgba(99, 84, 231, 0.45);
+}
+/* Optional: Make logos smaller on extra-small screens */
+@media (max-width: 576px) {
+  .travelcompany-logo {
+    max-height: 60px;
+    max-width: 80px;
+  }
+}
+.icon-large {
+  font-size: 2rem; 
+  transform: scale(1);
+}
+.icon-large:hover{
+  color:#007bff;
+  transition: 0.5s ease-in-out;
+  transform: scale(1.25);
+}
+.toast-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1100;
+  padding: 20px;
+}

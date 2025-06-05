@@ -1,0 +1,48 @@
+<!-- templates/add_package.html -->
+{% extends 'vendorbase.html' %} {% block title %}MakeMyTrip - Travello{% endblock %} 
+{% block content %}
+
+
+<div class=" container welcome-box">
+  <h2 class="mb-3 ">
+    Welcome {{ vendor.full_name }} to Travello   </h2>
+  <p class="text-muted">
+    Manage your packages and view your bookings from this dashboard.
+  </p>
+</div>
+
+<div class="container my-5">
+  <div class="card shadow-lg rounded-4 border-0">
+    <div class="card-body p-5">
+      <h2 class="text-center text-dark mb-4">About Travello – For Vendors</h2>
+
+      <p class="lead text-center mb-4">
+        Welcome to your gateway for showcasing unforgettable travel experiences.
+        As a vendor, you hold the key to turning ordinary days into extraordinary memories for travelers across the world.
+      </p>
+
+      <h3 class=" px-3 mb-3">Features of Vendor</h3>
+      <ul class="list-group list-group-flush mb-4">
+        <li class="list-group-item" style="border-top-left-radius: 90px;"> <strong>Create, update, and manage tour packages</strong> with complete flexibility—bring your unique travel plans to life.</li>
+        <li class="list-group-item"> <strong>Track real-time bookings:</strong> See how many users have chosen your adventures, and understand what excites your audience.</li>
+        <li class="list-group-item"> <strong>Admin approval process:</strong> All packages are reviewed for quality to ensure a trustworthy experience for travelers.</li>
+        <li class="list-group-item"> <strong>Auto-expiry feature:</strong> Let your packages expire automatically on the start date, keeping your listings clean and relevant.</li>
+        <li class="list-group-item" style="border-bottom-right-radius: 90px;"> <strong>Quality assurance:</strong> Packages without auto-expire will not be approved, helping maintain the highest standards on our platform.</li>
+      </ul>
+
+      <div class="bg-light p-4 rounded shadow-sm">
+        <h5 class="text-success"> Travelers Are Waiting...</h5>
+        <p class="mb-0">
+          Every day, eager travelers visit our platform looking for their next journey. Whether it's a weekend escape or a dream vacation,
+          <strong>they are waiting to explore the world through your well-crafted packages.</strong> Your next upload could be someone’s first adventure.
+        </p>
+      </div>
+
+      <p class="mt-4 text-muted text-center">
+        Join our trusted network of travel partners and start creating journeys that inspire, excite, and leave lasting memories.
+      </p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

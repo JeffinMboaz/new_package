@@ -1,0 +1,160 @@
+{% extends 'vendorbase.html' %}
+{% block title %}Edit Packages{% endblock %}
+
+{% block content %}
+  <div class="form-box mx-5 my-5">
+    <h2 class="mb-4 text-center text-dark">Edit Tour Package</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="create-form">
+      {% csrf_token %}
+      <div class="row">
+
+        <div class="form-floating mb-3 col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="packageTitle"
+            name="package_title"
+            value="{{ package.package_title }}"
+            placeholder="Title"
+            required
+            style="border: 2px solid blue"
+          />
+          <label for="packageTitle" class="mx-2">Title</label>
+        </div>
+
+        <div class="form-floating mb-3 col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="destination"
+            name="destination"
+            value="{{ package.destination }}"
+            placeholder="Destination"
+            required
+            style="border: 2px solid blue"
+          />
+          <label for="destination" class="mx-2">Destination</label>
+        </div>
+
+
+        <div class="form-floating mb-3 col-md-6">
+          <input
+            type="url"
+            class="form-control"
+            id="place_image"
+            name="place_image"
+            value="{{package.place_image}}"
+            placeholder="Image URL"
+            required 
+             style="border: 2px solid blue"
+          />
+          <label for="place_image" class="mx-2">Place Image URL</label>
+        </div>
+
+        <div class="form-floating mb-3 col-md-6">
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="price"
+            value="{{ package.price }}"
+            placeholder="Price"
+            required
+            style="border: 2px solid blue"
+          />
+          <label for="price" class="mx-2">Price</label>
+        </div>
+
+        <div class="form-floating mb-3 col-12">
+          <textarea
+            class="form-control"
+            placeholder="Description"
+            id="description"
+            name="description"
+            style="height: 100px; border: 2px solid blue"
+            required
+          >{{ package.description }}</textarea>
+          <label for="description" class="mx-2">Description</label>
+        </div>
+
+        <div class="form-floating mb-3 col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            id="duration"
+            name="duration"
+            value="{{ package.duration }}"
+            placeholder="Duration"
+            required
+            style="border: 2px solid blue"
+          />
+          <label for="duration" class="mx-2">Duration in Days</label>
+        </div>
+
+        <div class="form-floating mb-3 col-md-6">
+          <input
+            type="date"
+            class="form-control"
+            id="start_date"
+            name="start_date"
+            value="{{ package.start_date|date:'Y-m-d' }}"
+            placeholder="Start Date"
+            required
+            style="border: 2px solid blue"
+          />
+          <label for="start_date" class="mx-2"><strong>Start Date</strong></label>
+        </div>
+
+        <div class="form-floating mb-3 col-md-6">
+          <input
+            type="date"
+            class="form-control"
+            id="end_date"
+            name="end_date"
+            value="{{ package.end_date|date:'Y-m-d' }}"
+            placeholder="End Date"
+            required
+            style="border: 2px solid blue"
+          />
+          <label for="end_date" class="mx-2"><strong>End Date</strong></label>
+        </div>
+      </div>
+
+      <div class="row mb-4 mx-2">
+        <div class="form-check col-md-6 mb-2">
+          <input
+            class="form-check-input p-2"
+            type="checkbox"
+            id="top_package"
+            name="top_package"
+            {% if package.top_package %}checked{% endif %}
+            style="border: 2px solid blue"
+          />
+          <label class="form-check-label text-dark" for="top_package">
+            Top Package
+          </label>
+        </div>
+
+        <div class="form-check col-md-6 mb-2">
+          <input
+            class="form-check-input p-2"
+            type="checkbox"
+            id="budget_friendly"
+            name="budget_friendly"
+            {% if package.budget_friendly %}checked{% endif %}
+            style="border: 2px solid blue"
+          />
+          <label class="form-check-label text-dark" for="budget_friendly">
+            Budget Friendly
+          </label>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-md-row justify-content-center gap-5">
+        <button type="submit" class="btn btn-primary px-5">Update</button>
+        <button type="reset" class="btn btn-secondary px-5">Reset</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

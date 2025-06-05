@@ -1,0 +1,38 @@
+<!-- templates/add_package.html -->
+{% extends 'vendorbase.html' %}
+
+{% block title %}Published packages{% endblock %}
+
+{% block content %}
+<div class="my-5">
+  <h2 class="mb-4 text-center text-dark">All Packages</h2>
+  <div class="row  mx-4 p-3" style=" min-height:50vh;background-color:#799CFB ">
+    {% for package in packages %}
+    <div class=" col-sm-12 col-md-4 col-lg-3 ">
+      <div class="card package-card update-package">
+        <div class="card-body">
+          <h5 class="card-title ">{{ package.package_title }}</h5>
+          <p class="card-text">Price: ₹{{ package.price }}</p>
+          <a
+            href="{% url 'edit_package' package.id %}"
+            class="btn btn-sm btn-success me-2"
+            >Update</a
+          >
+          <a
+            href="{% url 'delete_package' package.id %}"
+            class="btn btn-sm btn-danger"
+            onclick="return confirm('Are you sure you want to delete {{ package.title }}?');"
+          >
+            Delete
+          </a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p class="text-center text-muted">No packages found.</p>
+    {% endfor %}
+  </div>
+
+</div>
+
+{% endblock %}

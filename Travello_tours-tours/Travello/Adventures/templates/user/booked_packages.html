@@ -1,0 +1,53 @@
+<!-- templates/booked_packages.html -->
+{% extends 'base.html' %}
+
+{% block title %}User bookings{% endblock %}
+
+{% block content %}
+ <!-- Main Content -->
+ <main class="container table-container" style="min-height: 90vh;">
+  <div style="margin-top: 90px;padding: 5px ; border:2px solid black;border-radius: 5px; background-color:gainsboro ;">
+
+  
+  <div class="dashboard-heading py-3" style="display: flex;justify-content: space-between;">
+    <h2 class="text-dark">Your Booked Packages</h2>
+    <a href="{% url 'return_to_user_dashboard' %}" class=" py-2 btn btn-secondary btn-back">
+      Back to Dashboard
+    </a>
+  </div>
+
+  {% if bookings %}
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover shadow">
+      <thead class="table-dark">
+        <tr>
+          <th>Package Title</th>
+          <th>Price</th>
+          <th>Company</th>
+          <th>Vendor Phone</th>
+          <th>Vendor Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in bookings %}
+        <tr>
+          <td>{{ booking.package.package_title }}</td>
+          <td>₹{{ booking.package.price }}</td>
+          <td>{{ booking.package.vendor.company }}</td>
+          <td>{{ booking.package.vendor.phone_no }}</td>
+          <th>{{ booking.package.vendor.full_name }}</th>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="alert alert-warning text-center" role="alert">
+    You have not booked any packages yet.
+  </div>
+  {% endif %}
+</div>
+ 
+</main>
+{% endblock %}

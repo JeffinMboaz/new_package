@@ -1,0 +1,203 @@
+
+body {
+  background: url('https://img.freepik.com/free-vector/winter-light-blue-gradient-vector-background_53876-128352.jpg?t=st=1744703882~exp=1744707482~hmac=0871d01a6d15bf431be29099f7e14a5c4e261af1c6cf1ff85614de390ee03211&w=996');
+  background-size: cover;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.floating-search-bar input {
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+  .floating-search-bar {
+    position: fixed;
+    top: 1px;
+    left: 60%;
+    transform: translateX(-100%);
+    z-index: 1050;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.58) ;
+  }
+  @media (max-width: 768px) {
+    .floating-search-bar {
+      position: static;
+      transform: none;
+      margin: 10px auto;
+      width:50%;
+    }
+  }
+  .floating-search-bar input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+  }
+
+
+/* navbar transparent */
+.navbar {
+background: rgba(0, 0, 0, 0.58) !important; /* semi-transparent blue */
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+box-shadow: 0 4px 10px rgba(209, 209, 209, 0.1);
+
+}
+.navbar-toggler {
+border: 1px solid rgb(11, 50, 92);
+background: rgba(226, 229, 231, 0.2) !important; /* semi-transparent blue */
+}
+.navbar-toggler-icon {
+color: rgb(7, 23, 39) !important;
+}
+.navbar-brand{
+color: white !important;
+}
+.dropdown-item {
+color: white !important;
+
+}
+.nav-link {
+padding: 5px;
+border-radius: 1rem;
+margin: 2px 5px;
+color:#ffffff !important;
+background-color: #6DC7D1 !important;
+font-weight: bold;
+}
+.navbar-brand:hover {
+color: #6DC7D1 !important;
+transition: ease-in-out 0.5s;
+}
+.nav-link:hover{
+background-color: #0056b3 !important;
+color: white !important;
+transition: ease-in-out 0.5s;
+}
+/* Welcome Box */
+.welcome-box {
+  background-color:rgba(30, 134, 117, 0.44) ;
+  border-radius: 12px;
+  padding: 40px 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  color: whitesmoke;
+}
+
+label {
+  font-weight: 600;
+}
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 3rem 3px 0px 3px;
+  text-align: center;
+}
+.travelcompany {
+  display: flex;
+  flex-wrap:wrap-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(49, 49, 49, 0.47);
+  padding: 20px 0;
+  border-radius: 5px;
+}
+.travelcompany-logo {
+  max-height: 180px;
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.9);
+  background-color: antiquewhite;
+  border-radius:5px;
+  border: 1px solid rgba(11, 37, 69, 0.16);
+  box-shadow: 5px 2px 7px rgba(99, 84, 231, 0.45);
+}
+/* Optional: Make logos smaller on extra-small screens */
+@media (max-width: 576px) {
+  .travelcompany-logo {
+    max-height: 60px;
+    max-width: 80px;
+  }
+}
+.icon-large {
+  font-size: 2rem;
+  transform: scale(1);
+}
+.icon-large:hover{
+  color:#007bff;
+  transition: 0.5s ease-in-out;
+  transform: scale(1.25);
+}
+@media (max-width: 768px) {
+  .welcome-box {
+    padding: 20px;
+  }
+}
+.main-con {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  position: relative;
+  transition: top 0s ease-in-out;
+}
+.move-down {
+  top: 150px;
+}
+.card{
+  background: url('https://images.unsplash.com/photo-1528460033278-a6ba57020470?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+}
+.list-group-item{
+  text-align: left;
+  margin: 15px 0;
+  padding: 15px 60px;
+  border-top-left-radius: 90px;
+  border-bottom-right-radius: 95px;
+  background-color: rgba(237, 243, 243, 0.82);
+  color:rgb(3, 10, 17);
+}
+/*  create.html */
+.create-form{
+  background-color:#E7EAED!important;
+  padding: 25px;
+  border-radius:8px;
+}
+/* edit.html */
+.form-floating label {
+  color: black !important;
+}
+ .form-edit input{
+  border: 2px solid blue !important;
+}
+.update-package{
+  background:url('https://as1.ftcdn.net/v2/jpg/05/42/58/68/1000_F_542586839_Mhc8tukY42qci4QPOmHqRp5QvgZviBEe.jpg');
+}
+.package-update-form {
+  background-color: #007bff !important;
+  display: grid;
+}
+
+.package-update-form .form-control {
+  border: none;
+}
+
+.package-update-form .form-control:focus {
+  box-shadow: none;
+  border: 2px solid #0056b3;
+}
+.toast-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  z-index: 1100;
+  padding: 20px;
+
+}
+
+

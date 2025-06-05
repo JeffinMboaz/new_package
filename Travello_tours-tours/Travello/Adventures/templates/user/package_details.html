@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block title %}Package details{% endblock %} 
+{%block content %}
+<div style="margin-top: 90px;">
+
+<!-- Messages Section -->
+{% if messages %}
+<div class="container mt-3">
+  {% for message in messages %}
+  <div
+    class="alert bg-success alert-dismissible fade show text-white text-center"
+    role="alert"
+    id="autoCloseAlert{{ forloop.counter }}"
+  >
+    {{ message }}
+    <button
+      type="button"
+      class="btn-close btn-close-white"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+  // Auto close each alert after 2 seconds
+  document.addEventListener("DOMContentLoaded", function () {
+    {% for message in messages %}
+      setTimeout(function () {
+        var alert = document.getElementById("autoCloseAlert{{ forloop.counter }}");
+        if (alert) {
+          var bsAlert = bootstrap.Alert.getOrCreateInstance(alert);
+          bsAlert.close();
+        }
+      }, 2000);
+    {% endfor %}
+  });
+</script>
+{% endif %}
+<h4 class="pb-2 ps-5 bg-light">Package Details</h4>
+<!-- Package Details -->
+<div class=" package-details ">
+  
+  <div class="package-details-img">
+     <img
+    src="{{ package.place_image }}"
+    alt="Package Image"
+    class="package-img"
+  />
+  </div>
+  <hr class="mx-5" />
+  <div class="package-details-body">
+  <h2 class="mb-4 text-center ">{{ package.package_title }}</h2>
+  <p><strong>Destination: {{ package.destination }}</strong></p>
+  <p><strong>Price: ₹{{ package.price }}</strong></p>
+  <p><strong>Description: {{ package.description }}</strong></p>
+  <p><strong>Duration: {{ package.duration }} days </strong></p>
+  <p><strong>Start Date: {{ package.start_date }}</strong></p>
+  <p><strong>End Date: {{ package.end_date }}</strong></p>
+</div>
+  <div class="d-flex justify-content-center gap-3  pb-3 mt-4">
+    <a href="{% url 'confirm_payment' package.id %}" class="btn btn-success"
+      >Confirm & Pay</a
+    >
+    <a
+      href="{% url 'return_to_user_dashboard' %}"
+      class="btn btn-secondary px-5"
+      >Back</a
+    >
+  </div>
+</div>
+</div>
+{% endblock %}
